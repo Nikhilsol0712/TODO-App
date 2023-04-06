@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODO APP</title>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      .mainContainer {
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnu5G-x22b4GO6qmwwJeAOXiRKxlLeQpRABnAPFVBsa_Nn-_3_QE5RSxAclrj5VUy2lvQ&usqp=CAU");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      }
+      nav {
+        width: 95%;
+        height: 7%;
+        padding-left: 5%;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        font-size: xx-large;
+        font-weight: bold;
+        color: white;
+        text-shadow: 1px 1px 5px rgb(99, 9, 117);
+
+        /* background-color: aquamarine; */
+      }
+
+      .filter {
+        width: 40%;
+        height: 60%;
+        margin-left: 15%;
+        padding-left: 15px;
+        border-radius: 10px;
+        border-style: none;
+        box-shadow: 1px 1px 3px rgb(51, 50, 50);
+      }
+
+      .filter:hover {
+        box-shadow: 0px 0px 15px yellow;
+      }
+
+      #searchBtn {
+        border-radius: 5px;
+        width: 5%;
+        height: 50%;
+        border-style: none;
+        background-color: rgb(94, 164, 230);
+      }
+
+      #searchBtn:hover {
+        background-color: rgb(0, 72, 206);
+        color: white;
+        box-shadow: 0px 0px 15px white;
+      }
+
+      .todoContainer {
+        height: 16%;
+        width: 100%;
+        /* background-color: red; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* background-color: chartreuse; */
+      }
+
+      .todoTitle {
+        height: 4rem;
+        width: 50%;
+
+        background-color: rgb(225, 225, 225, 0.5);
+        border-radius: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 1px 1px 3px rgb(51, 50, 50);
+
+        backdrop-filter: blur(25px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-bottom: 1px solid rgba(225, 225, 225, 0.25);
+        border-left: 1px solid rgba(225, 225, 225, 0.25);
+      }
+
+      .listmainContainer {
+        width: 100%;
+        height: 30rem;
+        /* background-color: orangered; */
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+      }
+
+      .todoList {
+        height: auto;
+        width: 51%;
+        position: relative;
+        background-color: rgb(225, 225, 225, 0.5);
+        backdrop-filter: blur(25px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-bottom: 1px solid rgba(225, 225, 225, 0.25);
+        border-left: 1px solid rgba(225, 225, 225, 0.25);
+        box-shadow: 1px 1px 5px rgb(51, 50, 50);
+
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+
+        overflow: auto;
+        overflow-x: hidden;
+        list-style-type: none;
+        border-radius: 15px;
+      }
+
+      .li {
+        margin: 0.5rem;
+
+        height: 2.5rem;
+        width: 41rem;
+        padding: 0.3em;
+        padding: 0.3em;
+        padding-left: 0.5em;
+        padding-top: 0.3em;
+        color: rgb(64, 12, 94);
+        box-shadow: 1px 1px 3px rgb(75, 73, 73);
+        /* margin-bottom: 1em; */
+        background-color: transparent;
+        border: solid 1px rgb(255, 255, 255, 0.5);
+        border-radius: 5px;
+      }
+
+      span {
+        margin: 10px;
+        font-weight: bold;
+        font-size: large;
+        width: 90%;
+        height: 15%;
+        color: white;
+        text-shadow: 3px 1px 5px black;
+      }
+
+      .dlt-Btn {
+        margin-top: 0.2em;
+        margin-right: 0.3em;
+        margin-bottom: 0.2em;
+        height: 1.8em;
+        float: right;
+        color: white;
+        background-color: rgb(199, 43, 43);
+        border-style: none;
+        border-radius: 0.5em;
+      }
+
+      .dlt-Btn:hover {
+        background-color: red;
+        box-shadow: 1px 1px 5px red;
+      }
+
+      #create-input {
+        width: 65%;
+        height: 50%;
+        margin-right: 3%;
+        border-radius: 7px;
+        border-style: none;
+        padding-left: 1em;
+        box-shadow: 1px 1px 3px rgb(51, 50, 50);
+      }
+
+      #create-input:hover {
+        box-shadow: 1px 1px 8px yellow;
+      }
+
+      #add-btn {
+        width: 10%;
+        height: 50%;
+        background-color: black;
+        color: white;
+        border: 1px solid white;
+        border-radius: 5px;
+      }
+
+      #add-btn:hover {
+        color: white;
+        background-color: rgb(31, 106, 247);
+        border: 1px solid blue;
+        box-shadow: 1px 1px 5px rgb(88, 162, 247);
+      }
+
+      hr {
+        width: 90%;
+        height: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mainContainer">
+      <nav>
+        TODO
+        <input
+          class="filter"
+          id="filter"
+          type="text"
+          placeholder="Search TODO "
+        />
+        <button id="searchBtn">search</button>
+      </nav>
+      <div class="todoContainer">
+        <form class="todoTitle" id="addForm">
+          <input id="create-input" type="text" placeholder="Create new TODO" />
+          <input id="add-btn" type="submit" />
+        </form>
+      </div>
+
+      <div class="listmainContainer">
+        <ul class="todoList" id="ulList">
+          <span>YOUR TODOs</span>
+          <hr />
+          <!-- <li class="li">
+            dddddddd<button class="dlt-Btn" id="dlt-Btn">Delete</button>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
